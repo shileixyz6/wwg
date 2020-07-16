@@ -1,4 +1,4 @@
-package com.example.wwg.dao.mapper;
+package com.example.wwg.dao;
 
 import com.example.wwg.model.Business;
 import com.example.wwg.model.BusinessExample;

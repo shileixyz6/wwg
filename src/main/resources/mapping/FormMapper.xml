@@ -105,11 +105,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.wwg.model.Form">
-    insert into form (form_id, user_name, sex, 
+    insert into form (user_name, sex,
       form_type, ad_div, phone, 
       email, address, form_title, 
       form_content)
-    values (#{formId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+    values (#{userName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR},
       #{formType,jdbcType=VARCHAR}, #{adDiv,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{formTitle,jdbcType=VARCHAR}, 
       #{formContent,jdbcType=VARCHAR})

@@ -1,10 +1,12 @@
-package com.example.wwg.dao.mapper;
+package com.example.wwg.dao;
 
 import com.example.wwg.model.Form;
 import com.example.wwg.model.FormExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface FormMapper {
     long countByExample(FormExample example);
 
