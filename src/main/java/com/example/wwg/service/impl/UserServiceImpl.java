@@ -5,7 +5,10 @@ import com.example.wwg.dao.UserDao;
 import com.example.wwg.model.User;
 import com.example.wwg.service.inter.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static com.example.wwg.common.ResponseCode.ERROR;
@@ -45,6 +48,9 @@ public class UserServiceImpl implements UserService {
             resultData.setCode(ERROR.getVal());
             return resultData;
         }
+        //MD5摘要算法（Spring自带)
+        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes(StandardCharsets.UTF_8)));
+        //写入数据库
         int count = userDao.addUser(user);
         if(count == 0){
             resultData.setMsg(MESSAGE_REGISTER_FAILED);
@@ -65,12 +71,14 @@ public class UserServiceImpl implements UserService {
     public ResultData login(String userName, String password) {
         User user = userDao.getUserByLoginName(userName);
         ResultData resultData = new ResultData();
+        //用户不存在
         if(user == null){
             resultData.setMsg(MESSAGE_LOGIN_FAILED);
             resultData.setCode(ERROR.getVal());
             return resultData;
         }
-        if(!user.getPassword().equals(password)){
+        //密码错误
+        if(!user.getPassword().equalsIgnoreCase(DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8)))){
             resultData.setMsg(MESSAGE_LOGIN_FAILED);
             resultData.setCode(ERROR.getVal());
             return resultData;
