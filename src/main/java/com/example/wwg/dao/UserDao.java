@@ -19,9 +19,16 @@ public interface UserDao {
     List<User> getUser();
 
     /**
-     * 根据登录名查询用户
+     * 根据loginName查询用户
      * @param loginName
      * @return
      */
     User getUserByLoginName(String loginName);
+
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
+    int addUser(User user);
 }

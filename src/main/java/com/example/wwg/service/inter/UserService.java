@@ -17,5 +17,18 @@ public interface UserService {
      */
     List<User> getUser();
 
+    /**
+     * 登录
+     * @param userName
+     * @param password
+     * @return
+     */
     ResultData login(String userName,String password);
+
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
+    ResultData register(User user);
 }

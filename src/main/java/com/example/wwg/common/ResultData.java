@@ -3,6 +3,7 @@ package com.example.wwg.common;/**
  * @Date : 2020/7/16 10:13
  */
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -12,6 +13,7 @@ import lombok.Data;
  * @create: 2020-07-16 10:13
  **/
 @Data
+@JsonInclude(value = JsonInclude.Include.NON_NULL) //如果有属性为null则该属性不返回给前端时
 public class ResultData {
     private String code;
 

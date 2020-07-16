@@ -11,7 +11,10 @@ package com.example.wwg.common;/**
  **/
 public class constant {
     public static final String MESSAGE_LOGIN_FAILED = "账号或密码错误，请重新登录";
+    public static final String MESSAGE_LOGIN_SUCCESS = "登录成功";
     public static final String MESSAGE_LOGIN_ACCT_ALREADY_IN_USE ="您要注册的用户已存在";
+    public static final String MESSAGE_REGISTER_SUCCESS = "注册成功";
+    public static final String MESSAGE_REGISTER_FAILED = "注册失败";
     public static final String MESSAGE_CODE_INVALID = "明文非有效密码,请核对后再试";
     public static final String MESSAGE_ACCESS_DENIED = "请登录后再试";
 }
