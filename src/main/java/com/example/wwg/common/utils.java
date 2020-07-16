@@ -3,6 +3,7 @@ package com.example.wwg.common;/**
  * @Date : 2020/7/16 9:53
  */
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Map;
 
@@ -34,4 +35,19 @@ public class utils {
     public static boolean StringEffective(String source){
         return source != null && source.length()>0;
     }
+
+    /*public static boolean checkAsyncRequest(HttpServletRequest httpServletRequest){
+
+        // 1.获取相应请求消息头
+        String accept = httpServletRequest.getHeader("Accept");
+        String xRequested = httpServletRequest.getHeader("X-Requested-With");
+
+        if(
+                (StringEffective(accept) && accept.contains("application/json"))
+                       ) {
+            return true;
+        }
+        return false;
+    }*/
+
 }

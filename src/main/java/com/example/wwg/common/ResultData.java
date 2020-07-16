@@ -5,6 +5,12 @@ package com.example.wwg.common;/**
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import com.google.gson.Gson;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * @program: wwg
@@ -15,45 +21,40 @@ import lombok.Data;
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL) //如果有属性为null则该属性不返回给前端时
 public class ResultData {
-    private String code;
+    private Integer code;
 
     private String msg;
 
-    private Object data;
+    private Map<String, Object> data;
 
-    public static ResultData success(Object data) {
-        return resultData(ResponseCode.SUCCESS.val(), ResponseCode.SUCCESS.msg(), data);
+    public static Gson gson = new Gson();
+
+    public ResultData(){
+
     }
 
-    public static ResultData success(Object data, String msg) {
-        return resultData(ResponseCode.SUCCESS.val(), msg, data);
-    }
-
-    public static ResultData fail(String code, String msg) {
-        return resultData(code, msg, null);
-    }
-
-    public static ResultData fail(String code, String msg, Object data) {
-        return resultData(code, msg, data);
-    }
-
-    public void setCode(String code) {
+    public ResultData(int code, String msg, Map<String, Object> data) {
         this.code = code;
-    }
-
-    public void setMsg(String msg) {
         this.msg = msg;
-    }
-
-    public void setData(Object data) {
         this.data = data;
     }
 
-    private static ResultData resultData(String code, String msg, Object data) {
-        ResultData resultData = new ResultData();
-        resultData.setCode(code);
-        resultData.setMsg(msg);
-        resultData.setData(data);
-        return resultData;
+
+    public static String success() {
+        return success(new HashMap<>(0));
     }
+    public static String success(Map<String, Object> data) {
+        return gson.toJson(new ResultData(0, "解析成功", data));
+    }
+
+    public static String failed() {
+        return failed("解析失败");
+    }
+    public static String failed(String msg) {
+        return failed(-1, msg);
+    }
+    public static String failed(int code, String msg) {
+        return gson.toJson(new ResultData(code, msg, new HashMap<>(0)));
+    }
+
 }
