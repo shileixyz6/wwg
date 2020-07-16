@@ -3,12 +3,15 @@ package com.example.wwg.common;/**
  * @Date : 2020/7/16 10:13
  */
 
+import lombok.Data;
+
 /**
  * @program: wwg
  * @description: 统一返回结果集
  * @author: Mr.Xiao
  * @create: 2020-07-16 10:13
  **/
+@Data
 public class ResultData {
     private String code;
 

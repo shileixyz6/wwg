@@ -1,9 +1,12 @@
 package com.example.wwg.common;
 
+import lombok.Getter;
+
 /**
  * @Author : xiao
  * @Date : 2020/7/16 10:12
  */
+@Getter
 public enum ResponseCode {
     /** 成功 */
     SUCCESS("200", "成功"),

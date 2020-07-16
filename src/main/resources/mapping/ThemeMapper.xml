@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.wwg.dao.mapper.ThemeMapper">
+<mapper namespace="com.example.wwg.dao.ThemeMapper">
   <resultMap id="BaseResultMap" type="com.example.wwg.model.Theme">
     <id column="theme_id" jdbcType="BIGINT" property="themeId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
