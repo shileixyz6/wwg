@@ -28,5 +28,4 @@ public class constant {
         EXCEPTION_MESSAGE_MAP.put("java.lang.RuntimeException", "系统在运行时发生错误");
         EXCEPTION_MESSAGE_MAP.put("com.example.wwg.exception.LoginException", "登录过程中运行错误");
     }
-    public static final String hh = "测试";
 }
