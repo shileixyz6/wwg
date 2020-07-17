@@ -16,6 +16,7 @@ import org.springframework.web.filter.CorsFilter;
  * @author: Mr.Xiao
  * @create: 2020-07-17 11:55
  **/
+/*
 @Configuration
 public class CorsConfig {
     private CorsConfiguration buildConfig(){
@@ -33,3 +34,4 @@ public class CorsConfig {
         return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 }
+*/

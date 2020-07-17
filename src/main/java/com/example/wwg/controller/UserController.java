@@ -3,6 +3,8 @@ package com.example.wwg.controller;
 import com.example.wwg.common.ResultData;
 import com.example.wwg.model.User;
 import com.example.wwg.service.inter.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import java.util.List;
  * @Description:
  * @Date: 2020-07-15 20:00
  */
+@Api(tags = "Usercontroller" ,description = "用户管理")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -32,6 +35,7 @@ public class UserController {
      * @param user
      * @return
      */
+    @ApiOperation("用户注册")
     @PostMapping("/register")
     public ResultData register(@RequestBody User user){
         return userService.register(user);
