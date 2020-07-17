@@ -1,6 +1,5 @@
 package com.example.wwg.service.impl;
 
-import com.example.wwg.common.ResultData;
 import com.example.wwg.dao.UserDao;
 import com.example.wwg.model.User;
 import com.example.wwg.service.inter.UserService;
