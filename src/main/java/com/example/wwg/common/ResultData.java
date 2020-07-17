@@ -20,12 +20,12 @@ import java.util.Map;
  **/
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL) //如果有属性为null则该属性不返回给前端时
-public class ResultData {
-    private Integer code;
+public class ResultData <T> {
+    private String code;
 
     private String msg;
 
-    private Map<String, Object> data;
+    private T data;
 
     public static Gson gson = new Gson();
 
@@ -33,28 +33,28 @@ public class ResultData {
 
     }
 
-    public ResultData(int code, String msg, Map<String, Object> data) {
+    public ResultData(String code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
 
-    public static String success() {
-        return success(new HashMap<>(0));
+    public static String successWithoutData() {
+        return success(null);
     }
-    public static String success(Map<String, Object> data) {
-        return gson.toJson(new ResultData(0, "解析成功", data));
+    public static<T> String success(T data) {
+        return gson.toJson(new ResultData("0", "解析成功", data));
     }
 
     public static String failed() {
         return failed("解析失败");
     }
     public static String failed(String msg) {
-        return failed(-1, msg);
+        return failed("-1", msg,null);
     }
-    public static String failed(int code, String msg) {
-        return gson.toJson(new ResultData(code, msg, new HashMap<>(0)));
+    public static <T> String failed(String code, String msg,T data) {
+        return gson.toJson(new ResultData(code, msg, data));
     }
 
 }
