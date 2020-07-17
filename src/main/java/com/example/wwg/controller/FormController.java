@@ -3,10 +3,7 @@ package com.example.wwg.controller;
 import com.example.wwg.common.ResultData;
 import com.example.wwg.model.Form;
 import com.example.wwg.service.inter.FormService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -29,5 +26,15 @@ public class FormController {
     @PostMapping("/addAppeal")
     public ResultData addAppeal(@RequestBody Form form){
         return formService.addAppeal(form);
+    }
+
+    /**
+     * 根据诉求id查询诉求
+     * @param formId
+     * @return
+     */
+    @PostMapping("/selectAppeal")
+    public ResultData selectAppeal(@RequestParam Long formId){
+        return formService.selectAppeal(formId);
     }
 }
