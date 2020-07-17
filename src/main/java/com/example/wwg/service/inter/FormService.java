@@ -17,4 +17,10 @@ public interface FormService {
      * @return
      */
     ResultData addAppeal(Form form);
+    /**
+     * 按照诉求id查询诉求
+     * @param formId
+     * @return
+     */
+    ResultData selectAppeal(Long formId);
 }

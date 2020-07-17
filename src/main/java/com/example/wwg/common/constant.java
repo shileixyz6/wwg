@@ -22,6 +22,9 @@ public class constant {
     public static final String MESSAGE_ACCESS_DENIED = "请登录后再试";
     public static final String MESSAGE_SAVE_SUCCESS = "保存成功";
     public static final String MESSAGE_SAVE_FAILED = "保存失败";
+    public static final String MESSAGE_SELECT_NULL = "查询结果为空";
+    public static final String MESSAGE_SELECT_SUCCESS = "查询成功";
+
     public static final Map<String,String> EXCEPTION_MESSAGE_MAP=new HashMap<>();
     static {
         EXCEPTION_MESSAGE_MAP.put("java.lang.ArithmeticException", "系统在进行数学运算时发生错误");
@@ -29,3 +32,4 @@ public class constant {
         EXCEPTION_MESSAGE_MAP.put("com.example.wwg.exception.LoginException", "登录过程中运行错误");
     }
 }
+

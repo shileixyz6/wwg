@@ -10,8 +10,7 @@ import javax.annotation.Resource;
 
 import static com.example.wwg.common.ResponseCode.ERROR;
 import static com.example.wwg.common.ResponseCode.SUCCESS;
-import static com.example.wwg.common.constant.MESSAGE_SAVE_FAILED;
-import static com.example.wwg.common.constant.MESSAGE_SAVE_SUCCESS;
+import static com.example.wwg.common.constant.*;
 
 /**
  * @Author: sl
@@ -39,6 +38,26 @@ public class FormServiceImpl implements FormService {
         }
         resultData.setMsg(MESSAGE_SAVE_SUCCESS);
         resultData.setCode(SUCCESS.getVal());
+        return resultData;
+    }
+
+    /**
+     * 按照诉求id查询诉求
+     * @param formId
+     * @return
+     */
+    @Override
+    public ResultData selectAppeal(Long formId) {
+        ResultData resultData = new ResultData();
+        Form form = formMapper.selectByPrimaryKey(formId);
+        if(form == null){
+            resultData.setMsg(MESSAGE_SELECT_NULL);
+            resultData.setCode(ERROR.getVal());
+            return resultData;
+        }
+        resultData.setMsg(MESSAGE_SELECT_SUCCESS);
+        resultData.setCode(SUCCESS.getVal());
+        resultData.setData(form);
         return resultData;
     }
 }
