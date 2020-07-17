@@ -54,11 +54,11 @@ public class UserServiceImpl implements UserService {
         int count = userDao.addUser(user);
         if(count == 0){
             resultData.setMsg(MESSAGE_REGISTER_FAILED);
-            resultData.setData(ERROR.getVal());
+            resultData.setCode(ERROR.getVal());
             return resultData;
         }
         resultData.setMsg(MESSAGE_REGISTER_SUCCESS);
-        resultData.setData(SUCCESS.getVal());
+        resultData.setCode(SUCCESS.getVal());
         return resultData;
     }
     /**
