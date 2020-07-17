@@ -34,7 +34,7 @@ public class LogTestController {
             //int j = i / 0;
             throw new MyException("999", "异常");
         } else {
-            return new ResultData(200, "成功", new HashMap<>(0));
+            return new ResultData("200", "成功", new HashMap<>(0));
         }
     }
 

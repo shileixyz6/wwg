@@ -25,7 +25,7 @@ public class ResultData <T> {
 
     private String msg;
 
-    private Map<String, Object> data;
+    private T data;
 
     public static Gson gson = new Gson();
 

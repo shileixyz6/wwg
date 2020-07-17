@@ -135,7 +135,7 @@ public class GlobalExceptionHandler {
 
     private <T extends Throwable> String exceptionFormat(Integer code, T ex) {
         log.error(String.format(logExceptionFormat, code, ex.getMessage()));
-        return ResultData.failed(code,ex.getMessage());
+        return ResultData.failed(ex.getMessage());
     }
 
 
