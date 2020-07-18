@@ -6,6 +6,7 @@ package com.example.wwg.config;/**
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -31,17 +32,13 @@ public class Swagger2Config {
                .apiInfo(apiInfo())
                .select()
                .apis(RequestHandlerSelectors.basePackage("com.example.wwg.controller"))
-               //为有@Api注解的Controller生成API文档
-               .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-               //为有@ApiOperation注解的方法生成API文档
-               .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                .paths(PathSelectors.any())
                .build();
     }
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("SwaggerUI演示")
+                .title("武威市政务服务平台API文档")
                 .description("wwg")
                 .contact("macro")
                 .version("1.0")

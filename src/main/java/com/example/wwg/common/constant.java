@@ -15,6 +15,7 @@ import java.util.Map;
 public class constant {
     public static final String MESSAGE_LOGIN_FAILED = "账号或密码错误，请重新登录";
     public static final String MESSAGE_LOGIN_SUCCESS = "登录成功";
+    public static final String MESSAGE_LOGINOUT_SUCCESS = "成功退出登录";
     public static final String MESSAGE_LOGIN_ACCT_ALREADY_IN_USE ="您要注册的用户已存在";
     public static final String MESSAGE_REGISTER_SUCCESS = "注册成功";
     public static final String MESSAGE_REGISTER_FAILED = "注册失败";
@@ -24,6 +25,7 @@ public class constant {
     public static final String MESSAGE_SAVE_FAILED = "保存失败";
     public static final String MESSAGE_SELECT_NULL = "查询结果为空";
     public static final String MESSAGE_SELECT_SUCCESS = "查询成功";
+    public static final String CURRENT_LOGIN_USER = "当前登录用户";
 
     public static final Map<String,String> EXCEPTION_MESSAGE_MAP=new HashMap<>();
     static {

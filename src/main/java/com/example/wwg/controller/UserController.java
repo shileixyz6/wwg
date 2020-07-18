@@ -1,5 +1,4 @@
 package com.example.wwg.controller;
-
 import com.example.wwg.common.ResultData;
 import com.example.wwg.model.User;
 import com.example.wwg.service.inter.UserService;
@@ -8,7 +7,13 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
+
+import static com.example.wwg.common.constant.CURRENT_LOGIN_USER;
+import static com.example.wwg.common.ResponseCode.SUCCESS;
+import static com.example.wwg.common.constant.MESSAGE_LOGINOUT_SUCCESS;
+
 /**
  * @Author: sl
  * @Description:
@@ -46,8 +51,23 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public ResultData login(@RequestBody User user){
-        return userService.login(user.getLoginName(),user.getPassword());
+    public ResultData login(@RequestBody User user, HttpSession session){
+        ResultData resultData = userService.login(user.getLoginName(),user.getPassword());
+        session.setAttribute(CURRENT_LOGIN_USER,resultData.getData());
+        return resultData;
     }
 
+    /**
+     * 退出登录
+     * @param session
+     * @return
+     */
+    @PostMapping("/logout")
+    public ResultData logout(HttpSession session){
+       session.removeAttribute(CURRENT_LOGIN_USER);
+        ResultData resultData = new ResultData();
+        resultData.setMsg(MESSAGE_LOGINOUT_SUCCESS);
+        resultData.setCode(SUCCESS.getVal());
+        return resultData;
+    }
 }
